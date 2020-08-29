@@ -4,9 +4,7 @@ LABEL maintainer="srherobrine20@gmail.com"
 LABEL description="Aptly publish Github/Gitlab pages"
 # Install reprepro and more
 RUN apt update -qq && DEBIAN_FRONTEND=noninteractive apt install -y gnupg wget git curl screen ubuntu-server dos2unix && apt clean
-RUN wget -qO - https://www.aptly.info/pubkey.txt -O /tmp/pubkey.txt && apt-key add /tmp/pubkey.txt
-RUN echo "deb http://repo.aptly.info/ nightly main" > /etc/sources.list.d/aptly.list 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y aptly
+RUN wget https://github.com/aptly-dev/aptly/releases/download/v1.4.0/aptly_1.4.0_amd64.deb -O /tmp/aptly.deb && dpkg -i /tmp/aptly.deb
 # Add scripts
 ADD publish.sh /usr/sbin/publish
 ADD key.sh /usr/sbin/key
