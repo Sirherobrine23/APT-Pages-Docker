@@ -10,15 +10,22 @@ export PUB_KEY
 export PRIV_KEY
 export KEY_ID
 export pass
+export CONF_FILE
 echo "--------------------------------------------------------"
 echo "O Diretorio está: $WORKDIR_SH23"
 echo "A distro selecionada: $DIST"
-echo "Opções adicionais para o reprepro: $MORE"
 echo "Opção atual do debug é: $DEBUG"
 echo "Seu arquivo de chave publica é: $PUB_KEY"
 echo "Seu arquivo de chave privada é: $PRIV_KEY"
 echo "Sua id da chave publica e privada é: $KEY_ID"
 echo "-------------------------------------------------------"
+
+# Pacotes
+cp -r package /aptly/
+
+# Confirações
+cp -f $CONF_FILE /aptly/aptly.conf
+
 # ------------------------------------------------------
 key
 # ------------------------------------------------------
