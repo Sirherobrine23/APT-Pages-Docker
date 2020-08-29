@@ -3,7 +3,7 @@ on:
   push:
 
 env:
- IMAGE1: sirherobrine23/pages-reprepro
+ IMAGE1: sirherobrine23/apt_pages
 
 jobs:
   build1:
