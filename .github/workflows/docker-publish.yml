@@ -1,0 +1,26 @@
+name: Docker Copiler
+on:
+  push:
+
+env:
+ IMAGE1: sirherobrine23/pages-reprepro
+
+jobs:
+  build1:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout
+       uses: actions/checkout@master
+      
+     - name: Login
+       run: 
+        docker login -u "${{ secrets.USER }}" -p "${{ secrets.PASSWORD }}"
+
+     - name: Build
+       run: |
+         HASS=$(echo "$IMAGE1:$(git rev-parse HEAD)")
+         LAST=$(echo "$IMAGE1:latest")
+         docker build -t "$LAST" .
+         docker build -t "$HASS" .
+         docker push "$LAST"
+         docker push "$HASS"
