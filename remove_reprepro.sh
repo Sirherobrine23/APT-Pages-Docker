@@ -65,6 +65,6 @@ echo "
 
 # Criando algumas pastas e publicando
 mkdir -p /public
-cp -rf ./ /public
 mkdir -p $WORKDIR_SH23/public
-cp -rf . $WORKDIR_SH23/public
+cp -rf /aptly/public/ /public
+cp -rf /aptly/public/ $WORKDIR_SH23/public
