@@ -1,1 +1,3 @@
-Publicandos Repositorios APT via Github Pages
+Publicando repositorios apt via Github/Gitlab Pages
+
+# BETA ainda

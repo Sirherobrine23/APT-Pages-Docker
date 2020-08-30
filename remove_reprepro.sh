@@ -40,8 +40,9 @@ echo "
                     <p>
                         <a>add repo</a>
                     </p>
-                    <code>wget -O - $URL_REPO/dists/$DIST/Release.gpg | sudo apt-key add -</code>
+                    <code>wget -O - $URL_REPO/Release.gpg | sudo apt-key add -</code>
                     <br>
+                    <p>$DIST sources.list</p>
                     <code>deb $URL_REPO/ $DIST main</code>
                     <p>
                         <a>package list | lista de pacotes</a>
@@ -69,6 +70,9 @@ echo "
     </body>
 </html>
 " >> /aptly/public/index.html
+
+# Key
+gpg --armor --output /aptly/public/Release.gpg --export $KEY_ID
 
 # Criando algumas pastas e publicando
 mkdir -p /public
