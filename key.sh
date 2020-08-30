@@ -12,6 +12,6 @@ echo "--------------------------------------------------------------------------
  echo "allow-loopback-pinentry" >> $gpg_folder/gpg-agent.conf
  echo "UPDATESTARTUPTTY" | gpg-connect-agent
  echo "RELOADAGENT" | gpg-connect-agent
- gpg -v --passphrase "$pass" --no-tty --batch --yes --import <(cat "keys/$PRIV_KEY") &> "$WORKDIR_SH23/public/key_import.log"
- gpg -v --import <(cat "keys/$PUB_KEY") &> "$WORKDIR_SH23/public/key_import.log"
+ gpg -v --passphrase "$pass" --no-tty --batch --yes --import <(cat "keys/$PRIV_KEY")
+ gpg -v --import <(cat "keys/$PUB_KEY")
 echo "-----------------------------------------------------------------------------------------------"
