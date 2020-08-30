@@ -37,13 +37,14 @@ echo "
             </p>
             <center>
                 <div class="listen">
+                    <code>wget -O - $URL_REPO/dists/$DIST/Release.gpg | sudo apt-key add -</code>
                     <p>
                         <a>package list | lista de pacotes</a>
                     </p>
                     <p>--------------------------</p>
 " > /aptly/public/
 
-for a in $()
+for a in $(find /aptly/public/ -name '*.deb' | sed 's|/aptly/public||g')
 do 
 echo "
                     <p>

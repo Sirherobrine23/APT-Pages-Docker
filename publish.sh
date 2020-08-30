@@ -11,6 +11,7 @@ export PRIV_KEY
 export KEY_ID
 export pass
 export CONF_FILE
+export URL_REPO
 echo "--------------------------------------------------------"
 echo "O Diretorio está: $WORKDIR_SH23"
 echo "A distro selecionada: $DIST"
