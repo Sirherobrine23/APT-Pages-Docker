@@ -37,7 +37,12 @@ echo "
             </p>
             <center>
                 <div class="listen">
+                    <p>
+                        <a>add repo</a>
+                    </p>
                     <code>wget -O - $URL_REPO/dists/$DIST/Release.gpg | sudo apt-key add -</code>
+                    <br>
+                    <code>deb $URL_REPO/ $DIST main</code>
                     <p>
                         <a>package list | lista de pacotes</a>
                     </p>
@@ -48,7 +53,9 @@ for a in $(find /aptly/public/ -name '*.deb' | sed 's|/aptly/public||g')
 do 
 echo "
                     <p>
-                        <a>---------------</a>
+                        <p>
+                            <a>---------------</a>
+                        </p>
                         <a href=${a}>${a}</a>
                     </p>
 " >> /aptly/public/index.html
