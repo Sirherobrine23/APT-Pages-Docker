@@ -42,7 +42,7 @@ echo "
                         <a>package list | lista de pacotes</a>
                     </p>
                     <p>--------------------------</p>
-" > /aptly/public/
+" > /aptly/public/index.html
 
 for a in $(find /aptly/public/ -name '*.deb' | sed 's|/aptly/public||g')
 do 
@@ -51,7 +51,7 @@ echo "
                         <a>---------------</a>
                         <a href=${a}>${a}</a>
                     </p>
-" >> /aptly/public/
+" >> /aptly/public/index.html
 done
 
 echo "
@@ -61,10 +61,10 @@ echo "
         </main>
     </body>
 </html>
-" >> /aptly/public/
+" >> /aptly/public/index.html
 
 # Criando algumas pastas e publicando
 mkdir -p /public
 mkdir -p $WORKDIR_SH23/public
-cp -rf /aptly/public/ /public
-cp -rf /aptly/public/ $WORKDIR_SH23/public
+cp -rf /aptly/public/* /public
+cp -rf /aptly/public/* $WORKDIR_SH23/public
