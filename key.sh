@@ -10,8 +10,7 @@ echo "--------------------------------------------------------------------------
  echo use-agent >> $gpg_folder/gpg.conf
  echo "pinentry-mode loopback" >> $gpg_folder/gpg.conf
  echo "allow-loopback-pinentry" >> $gpg_folder/gpg-agent.conf
- echo "UPDATESTARTUPTTY" | gpg-connect-agent
- echo "RELOADAGENT" | gpg-connect-agent
- gpg -v --passphrase "$pass" --no-tty --batch --yes --import <(cat "keys/$PRIV_KEY")
- gpg -v --import <(cat "keys/$PUB_KEY")
-echo "-----------------------------------------------------------------------------------------------"
+ echo "UPDATESTARTUPTTY" | gpg-connect-agent &> /dev/null
+ echo "RELOADAGENT" | gpg-connect-agent &> /dev/null
+ gpg -v --passphrase "$pass" --no-tty --batch --yes --import <(cat "keys/$PRIV_KEY") &> /dev/null
+ gpg -v --import <(cat "keys/$PUB_KEY") &> /dev/null
