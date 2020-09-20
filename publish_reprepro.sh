@@ -7,7 +7,7 @@ aptly repo create -distribution=$DIST -component=$as soft-$as
 
 aptly repo add  soft-$as /aptly/package/$as/*.deb
 
-aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=, soft-$as || echo
+aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=$as soft-$as || error=1
 
 if [ -z $cop ] ;then
   cop="soft-$as"
@@ -28,4 +28,4 @@ else
 fi
 done
 
-aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=$cop2 || aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=$virg $cop
+[ $error = 1] && aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=$virg $cop
