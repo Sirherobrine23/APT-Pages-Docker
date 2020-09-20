@@ -13,6 +13,12 @@ else
   cop="$cop soft-$as"
 fi
 
+if [ -z $cop2 ] ;then
+  cop2="soft-$as"
+else
+  cop2="$cop2,soft-$as"
+fi
+
 if [ -z $virg ] ;then
   echo
 else
@@ -20,4 +26,4 @@ else
 fi
 done
 
-aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=$virg $cop
+aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=$cop2 || aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=$virg $cop
