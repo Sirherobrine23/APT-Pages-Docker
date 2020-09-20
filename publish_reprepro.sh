@@ -3,7 +3,7 @@ cd /aptly/
 for as in $(ls /aptly/package/)
 do
 aptly repo create -distribution=$DIST -component=soft-$as $as
-aptly repo add  soft-$as /aptly/package/$as/*.deb
+aptly repo add  $as /aptly/package/$as/*.deb
 
 if [ -z $cop ] ;then
   cop="$as"
