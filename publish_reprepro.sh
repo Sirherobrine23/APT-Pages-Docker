@@ -6,6 +6,8 @@ aptly repo create -config="/aptly/aptly.conf" -component="$as" -distribution="$D
 
 aptly repo add -config="/aptly/aptly.conf" $as /aptly/package/$as/*.deb
 
+aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -distribution=$DIST $as
+
 if [ -z $cop ] ;then
   echo "$cop $as"
   cop="$as"
@@ -15,7 +17,7 @@ else
 fi
 done
 
-aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  $DIST || aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  $DIST -distribution=$DIST || aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -distribution=$DIST $DIST
+#aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  $DIST || aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  $DIST -distribution=$DIST || 
 
 
 
