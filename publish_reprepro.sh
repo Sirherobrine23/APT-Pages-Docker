@@ -21,7 +21,7 @@ fi
 done
 
 
-aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$virg $cop"
+aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component=$virg $cop
 
 
 
