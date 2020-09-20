@@ -2,11 +2,9 @@
 cd /aptly/
 for as in $(ls /aptly/package/)
 do
-aptly repo create -config="/aptly/aptly.conf" -component="$as" -distribution="$DIST" $DIST
 
-aptly repo add -config="/aptly/aptly.conf" $as /aptly/package/$as/*.deb
-
-
+aptly repo create -component="$as" $DIST
+aptly repo add  $as /aptly/package/$as/*.deb
 
 if [ -z $cop ] ;then
   echo "$cop $as"
