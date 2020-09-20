@@ -26,7 +26,8 @@ cp -r package /aptly/
 
 # Confirações
 cp -f $CONF_FILE /aptly/aptly.conf
-ln -s /aptly/aptly.conf $HOME/.aptly.conf
+rm -rf ~/.aptly.conf
+ln -s /aptly/aptly.conf ~/.aptly.conf
 
 # ------------------------------------------------------
 key
