@@ -28,4 +28,4 @@ else
 fi
 done
 
-[ $error = 1] && aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=$virg $cop
+aptly publish repo -passphrase="$pass" -batch -label="$DIST" -component=$cop2 $cop
