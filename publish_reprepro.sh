@@ -16,7 +16,7 @@ fi
 done
 
 echo "os components definidos: $cop"
-aptly publish repo $DIST -passphrase="$pass" -batch -force-overwrite=true -config="/aptly/aptly.conf"  -distribution=$DIST -component="$cop" || aptly publish repo $DIST -passphrase="$pass" -batch -component="$cop"
+aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -config="/aptly/aptly.conf"  -component="$cop" 
 
 
 
