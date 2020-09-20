@@ -21,7 +21,7 @@ fi
 done
 
 
-aptly publish repo -passphrase="$pass" -batch -component=$virg $cop $DIST
+aptly publish repo -passphrase="$pass" -batch -component=$virg $cop -distribution=$DIST
 
 
 
