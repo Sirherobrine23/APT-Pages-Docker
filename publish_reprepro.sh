@@ -11,9 +11,9 @@ else
   cop="$cop a-$as"
 fi
 if [ -z $cop2 ] ;then
-  cop2="$as"
+  cop2="a-$as"
 else
-  cop2="$cop2,$as"
+  cop2="$cop2,a-$as"
 fi
 done
 
