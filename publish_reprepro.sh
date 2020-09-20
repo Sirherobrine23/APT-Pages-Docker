@@ -3,20 +3,31 @@ cd /aptly/
 for as in $(ls /aptly/package/)
 do
 
+aptly repo create -distribution=$DIST -component=$as my-soft-main
+
+
+
+
 aptly repo create -component="$as" $DIST
 aptly repo add  $as /aptly/package/$as/*.deb
 
 if [ -z $cop ] ;then
-  echo "$cop $as"
-  cop="$as"
+  cop="soft-$as"
 else
-  echo "$as"
-  cop="$cop, $as"
+  cop="$cop,soft-$as"
 fi
 done
 
-aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  $DIST || aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  -distribution=$DIST $DIST || aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  -distribution=$DIST $DIST
 
+aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component=$cop
+
+
+
+
+
+# testes e script velho
+
+#aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  $DIST || aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  -distribution=$DIST $DIST || aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  -distribution=$DIST $DIST
 
 
 #echo "Criando um repositorio"
