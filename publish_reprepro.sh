@@ -10,12 +10,18 @@ aptly repo add  soft-$as /aptly/package/$as/*.deb
 if [ -z $cop ] ;then
   cop="soft-$as"
 else
-  cop="$cop,soft-$as"
+  cop="$cop soft-$as"
+fi
+
+if [ -z $virg ] ;then
+  echo
+else
+  virg="$virg,"
 fi
 done
 
 
-aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component=$cop
+aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$virg $cop"
 
 
 
