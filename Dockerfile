@@ -11,18 +11,15 @@ ADD publish.sh /usr/sbin/publish
 ADD key.sh /usr/sbin/key
 ADD publish_reprepro.sh /usr/sbin/publish_reprepro
 ADD remove_reprepro.sh /usr/sbin/remove_reprepro
-ADD reprepro_export.sh /usr/sbin/reprepro_export
 # Convertendo de CRLF to LF
 RUN dos2unix /usr/sbin/publish
 RUN dos2unix /usr/sbin/key
 RUN dos2unix /usr/sbin/publish_reprepro
 RUN dos2unix /usr/sbin/remove_reprepro
-RUN dos2unix /usr/sbin/reprepro_export
 # Dando as Permissões
 RUN chmod a+x /usr/sbin/publish
 RUN chmod a+x /usr/sbin/key
 RUN chmod a+x /usr/sbin/publish_reprepro
 RUN chmod a+x /usr/sbin/remove_reprepro
-RUN chmod a+x /usr/sbin/reprepro_export
 # Usuario ROOT
 USER root
