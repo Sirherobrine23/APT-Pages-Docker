@@ -20,20 +20,4 @@ else
 fi
 done
 
-
-aptly publish repo -passphrase="$pass" -batch -component=$virg $cop -distribution=$DIST
-
-
-
-
-
-# testes e script velho
-
-#aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  $DIST || aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  -distribution=$DIST $DIST || aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -component="$cop"  -distribution=$DIST $DIST
-
-
-#echo "Criando um repositorio"
-#aptly repo create -config="/aptly/aptly.conf" $DIST 
-#echo "Adicionando os arquivos"
-#echo "publicando"
-#aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -config="/aptly/aptly.conf" -distribution=$DIST $DIST
+aptly publish repo -passphrase="$pass" -batch -distribution=$DIST -component=$virg $cop
