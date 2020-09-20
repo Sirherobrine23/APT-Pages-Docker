@@ -6,12 +6,10 @@ aptly repo create -config="/aptly/aptly.conf" -component="$as" -distribution="$D
 
 aptly repo add -config="/aptly/aptly.conf" $as /aptly/package/$as/*.deb
 
-cop="$cop $as"
+cop="$cop, $as"
 done
-
-aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -config="/aptly/aptly.conf" -components=, $cop
-
-
+echo "os components São: $cop"
+aptly publish repo -passphrase="$pass" -batch -force-overwrite=true -config="/aptly/aptly.conf" -components="$cop"
 
 
 
