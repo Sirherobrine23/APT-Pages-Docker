@@ -8,15 +8,10 @@ POOL="$(ls pool/)"
 KEYGPG="$(cat Release.gpg)"
 echo "
 #!/bin/bash
-echo 'GPGKEY' | apt-key add -
-echo deb URLADD URLMAIN
+echo '$KEYGPG' | apt-key add -
+echo "deb $URL_REPO $DIST $POOL" > /etc/apt/sources.list.d/$DIST.list
 apt update
 " > add-repo.sh
-
-sed -i "s|GPGKEY|$KEYGPG|g" add-repo.sh
-sed -i "s|URLADD|$URL_REPO|g" add-repo.sh
-sed -i "s|URLMAIN|$POOL|g" add-repo.sh
-
 
 # Criando algumas pastas e publicando
 mkdir -p /public
