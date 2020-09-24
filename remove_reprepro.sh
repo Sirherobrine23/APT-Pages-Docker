@@ -11,7 +11,12 @@ echo "
 echo 'GPGKEY' | apt-key add -
 echo deb URLADD URLMAIN
 apt update
-" | sed "s|GPGKEY|$KEYGPG|g" | sed "s|URLADD|$URL_REPO|g" | sed "s|URLMAIN|$POOL|g" > add-repo.sh
+" > add-repo.sh
+
+sed -i "s|GPGKEY|$KEYGPG|g" add-repo.sh
+sed -i "s|URLADD|$URL_REPO|g" add-repo.sh
+sed -i "s|URLMAIN|$POOL|g" add-repo.sh
+
 
 # Criando algumas pastas e publicando
 mkdir -p /public
